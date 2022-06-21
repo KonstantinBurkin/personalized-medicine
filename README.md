@@ -1,1 +1,2 @@
-# Cardiovascular_disease
+# Cardiovascular disease project at HSE
+Predict survival of patients
