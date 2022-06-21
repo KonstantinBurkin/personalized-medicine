@@ -1,4 +1,4 @@
 # Cardiovascular disease project
-## International Laboratory of Bioinformatics, HSE
+**International Laboratory of Bioinformatics, HSE**
 
 This project aims to predict survival of patients.
