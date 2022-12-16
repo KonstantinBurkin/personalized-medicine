@@ -8,6 +8,12 @@ Cardiovascular diseases (CVDs) are the leading cause of death worldwide, causing
 We are aiming:
 - to analyze the medical data of patients with CVDs from Surgut Cardio Hospital; 
 - to identify biomarkers correlating to the risk factor increase;
+- to compare primary risk biomarkers to previously described risk factors; 
 - to develop predictive machine learning models;  
+- to create guidelines for cardio medical community.
 
 And, hence, to improve the efficiency of diagnosis and cure of cardiovascular complications.
+
+
+## References
+1. WHO, Cardiovascular diseases. 2021. ([web](https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)))
