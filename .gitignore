@@ -7,3 +7,5 @@ Conference\ -\ 2022\ Вычислительная\ биология\ и\ иск�
 Reference\ articles
 Reports
 .DS_Store
+Scripts/__pycache__
+Scripts/catboost_info
