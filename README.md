@@ -1,8 +1,22 @@
 # Personalized Medicine Project
-[![DOI:10.14341/CBAI-2022-14](http://img.shields.io/badge/DOI-10.14341/CBAI.2022.14-B31B1B.svg)](https://doi.org/10.14341/CBAI-2022-14)
+This repo contains the copy of "Personalized Medicine" projects' scripts. This project is aimed at developing of risk prediction models for patients with cardiovascular diseases.
 
-## Motivation
-Cardiovascular diseases (CVDs) are the leading cause of death worldwide, causing up to 18 million deaths annually [[1](#References)]. CVDs are mainly manifested in the form of myocardial infarction and heart failure. Reducing premature mortality from CVDs is possible by identifying all those at highest risk and ensuring that they receive appropriate treatment. The most important condition for the provision of appropriate treatment and counseling is the identification of a clinical or biochemical markers, the value of which leads to an increased risk factor. The critical values of such traits can vary from population to population, so it is of particular importance to identify a group of traits for the Russian population that are better able to predict an increased risk factor, as well as to identify their critical values.
+## Keywords
+Machine learning, cardiovascular deseases, biomarkers
+## Abstract
+Cardiovascular diseases are the leading cause of death
+worldwide, and accurately identifying individuals at risk is crucial
+for prevention and appropriate treatment. However, there is a need to
+identify specific risk factors tailored to the Russian population,
+which has been underrepresented in international research. In this
+study, predictive models were developed using machine learning on a
+Russian population dataset to predict future complications in
+patients. Eight key clinical parameters were identified as leading to
+increased risk. The addition of biomarkers, specifically PCSK9,
+improved the predictive accuracy, resulting in a Random Forest model
+with an AUROC of 0.957 in the train subset and 0.859 in the test
+subset for predicting combined cardiovascular death, myocardial
+infarction, or stroke within 1-2 years.
 
 ## Description
 We are aiming:
@@ -12,12 +26,8 @@ We are aiming:
 - to develop predictive machine learning models;  
 - to create guidelines for cardio medical community.
 
-And, hence, to improve the efficiency of diagnosis and cure of cardiovascular complications.
-
-## Methods
-To be continued...  
-
 [//]: <> (to be written)
 
-## References
-1. WHO, Cardiovascular diseases. 2021. ([web](https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)))
+## Publications
+1. [Russian Cardiology Bulletin 2023](https://cardioweb.ru/files/conference/2023/KardioVestnik_2023_tezis.pdf)
+2. [Computational Biology and Artificial Intelligence in Medicine 2022 ![DOI:10.14341/CBAI-2022-14](http://img.shields.io/badge/DOI-10.14341/CBAI.2022.14-B31B1B.svg)](https://doi.org/10.14341/CBAI-2022-14)
