@@ -17,6 +17,10 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly
 
+def func_mcc(y_true, y_pred):
+    score = mcc(y_true, y_pred)
+    return score
+    
 def func(y_true, y_pred):
     score = mcc(y_true, y_pred)
     return score
