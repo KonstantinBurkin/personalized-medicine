@@ -1,6 +1,6 @@
 from mlxtend.feature_selection import SequentialFeatureSelector as SFS
 import shap
-
+from sklearn.linear_model import LogisticRegression
 from Trained_model import Trained_model
 import numpy as np
 import pandas as pd
@@ -17,10 +17,6 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly
 
-def func_mcc(y_true, y_pred):
-    score = mcc(y_true, y_pred)
-    return score
-    
 def func(y_true, y_pred):
     score = mcc(y_true, y_pred)
     return score
@@ -94,6 +90,24 @@ class Feature_selector(Trained_model):
             # clear_output()
 
     
+    def get_l1_importance(self, X_train, y_train, path, N, fixed_N, metric):
+        '''
+        Function calculates RFE importances.
+        Plot is made.
+        '''
+        model  = LogisticRegression(random_state=20)
+
+        model.fit(X_train, y_train)
+
+        data = pd.DataFrame()
+        data['coef'] = model.coef_[0].tolist()
+        data['features'] = X_train.columns
+
+        data.to_excel(f'{path}values.xlsx')
+
+        return data
+    
+
     def get_sfs_importance(self, model_instance, model_name, X_train, y_train, path, N, fixed_N, metric):
         '''
         Function calculates RFE importances.
@@ -253,3 +267,5 @@ class Feature_selector(Trained_model):
                                 self.get_rf_importance(model_instance=model_instance, X_train=X_train, X_test=X_test, path=results_path)
                             if selector == 'SFS':
                                 self.get_sfs_importance(model_instance=model_instance, model_name=model, X_train=X_train, y_train=y_train, path=results_path, N=N, fixed_N=fixed_N, metric=metric)
+                            if selector == 'L1':
+                                self.get_l1_importance(X_train=X_train, y_train=y_train, path=results_path, N=N, fixed_N=fixed_N, metric=metric)

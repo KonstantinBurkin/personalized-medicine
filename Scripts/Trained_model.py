@@ -119,7 +119,7 @@ class Trained_model():
             print(f"There is no file in {path} \n")
 
         try:
-            params = optimisation_file[optimisation_file['rank_test_mcc']==1][["params"]].iloc[0]
+            params = optimisation_file[optimisation_file['rank_test_roc_auc']==1][["params"]].iloc[0]
             params = ast.literal_eval(params[0])
             if model == 'randomforest':
                 model_instance = RandomForestClassifier(**params)

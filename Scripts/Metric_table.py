@@ -46,27 +46,27 @@ class Metric_table():
         adaboost_optimisation = pd.read_excel(f'{path}adaboost_optimisation.xlsx', header=[0])
         catboost_optimisation = pd.read_excel(f'{path}catboost_optimisation.xlsx', header=[0])
 
-        params = randomforest_optimisation[randomforest_optimisation['rank_test_mcc']==1][["params"]].iloc[0]
+        params = randomforest_optimisation[randomforest_optimisation['rank_test_roc_auc']==1][["params"]].iloc[0]
         params = ast.literal_eval(params[0])
         random_forest_model = RandomForestClassifier(**params)
         # 
-        params = svm_optimisation[svm_optimisation['rank_test_mcc']==1][["params"]].iloc[0]
+        params = svm_optimisation[svm_optimisation['rank_test_roc_auc']==1][["params"]].iloc[0]
         params = ast.literal_eval(params[0])
         SVM_model = SVC(**params)
         # 
-        # params = nn_optimisation[nn_optimisation['rank_test_mcc']==1][["params"]].iloc[0]
+        # params = nn_optimisation[nn_optimisation['rank_test_roc_auc']==1][["params"]].iloc[0]
         # params = ast.literal_eval(params[0])
         # newral_network_model = MLPClassifier(**params)
         # 
-        params = knn_optimisation[knn_optimisation['rank_test_mcc']==1][["params"]].iloc[0]
+        params = knn_optimisation[knn_optimisation['rank_test_roc_auc']==1][["params"]].iloc[0]
         params = ast.literal_eval(params[0])
         knn_model = KNeighborsClassifier(**params)
         # 
-        params = LogisticRegression_optimisation[LogisticRegression_optimisation['rank_test_mcc']==1][["params"]].iloc[0]
+        params = LogisticRegression_optimisation[LogisticRegression_optimisation['rank_test_roc_auc']==1][["params"]].iloc[0]
         params = ast.literal_eval(params[0])
         LR_model = LogisticRegression(**params)
         # 
-        params = adaboost_optimisation[adaboost_optimisation['rank_test_mcc']==1][["params"]].iloc[0]
+        params = adaboost_optimisation[adaboost_optimisation['rank_test_roc_auc']==1][["params"]].iloc[0]
         params = eval(params[0])
         AB_model = AdaBoostClassifier(**params)
         # 
@@ -134,18 +134,18 @@ class Metric_table():
         # add cross validated F2 scores on the train set
         mean = []
         std = []
-        mean_test,std_test = randomforest_optimisation[randomforest_optimisation['rank_test_mcc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
-        randomforest_optimisation[randomforest_optimisation['rank_test_mcc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
+        mean_test,std_test = randomforest_optimisation[randomforest_optimisation['rank_test_roc_auc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
+        randomforest_optimisation[randomforest_optimisation['rank_test_roc_auc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
         mean.append(mean_test); std.append(std_test)
-        mean_test,std_test = svm_optimisation[svm_optimisation['rank_test_mcc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
+        mean_test,std_test = svm_optimisation[svm_optimisation['rank_test_roc_auc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
         mean.append(mean_test); std.append(std_test)
-        # mean_test,std_test = nn_optimisation[nn_optimisation['rank_test_mcc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
+        # mean_test,std_test = nn_optimisation[nn_optimisation['rank_test_roc_auc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
         # mean.append(mean_test); std.append(std_test)
-        mean_test,std_test = LogisticRegression_optimisation[LogisticRegression_optimisation['rank_test_mcc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
+        mean_test,std_test = LogisticRegression_optimisation[LogisticRegression_optimisation['rank_test_roc_auc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
         mean.append(mean_test); std.append(std_test)
-        mean_test,std_test = knn_optimisation[knn_optimisation['rank_test_mcc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
+        mean_test,std_test = knn_optimisation[knn_optimisation['rank_test_roc_auc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
         mean.append(mean_test); std.append(std_test)
-        mean_test,std_test = adaboost_optimisation[adaboost_optimisation['rank_test_mcc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
+        mean_test,std_test = adaboost_optimisation[adaboost_optimisation['rank_test_roc_auc']==1][["mean_test_mcc","std_test_mcc"]].iloc[0]
         mean.append(mean_test); std.append(std_test)
         mean_test,std_test = catboost_optimisation[['mean_test_mcc', 'std_test_mcc']].iloc[catboost_optimisation.shape[0]-1]
         mean.append(mean_test); std.append(std_test)
@@ -157,18 +157,18 @@ class Metric_table():
         # add cross validated F2 scores on the train set
         mean_roc_auc = []
         std_roc_auc = []
-        mean_test_roc_auc,std_test_roc_auc = randomforest_optimisation[randomforest_optimisation['rank_test_mcc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
-        randomforest_optimisation[randomforest_optimisation['rank_test_mcc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
+        mean_test_roc_auc,std_test_roc_auc = randomforest_optimisation[randomforest_optimisation['rank_test_roc_auc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
+        randomforest_optimisation[randomforest_optimisation['rank_test_roc_auc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
         mean_roc_auc.append(mean_test_roc_auc); std_roc_auc.append(std_test_roc_auc)
-        mean_test_roc_auc,std_test_roc_auc = svm_optimisation[svm_optimisation['rank_test_mcc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
+        mean_test_roc_auc,std_test_roc_auc = svm_optimisation[svm_optimisation['rank_test_roc_auc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
         mean_roc_auc.append(mean_test_roc_auc); std_roc_auc.append(std_test_roc_auc)
-        # mean_test_roc_auc,std_test_roc_auc = nn_optimisation[nn_optimisation['rank_test_mcc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
+        # mean_test_roc_auc,std_test_roc_auc = nn_optimisation[nn_optimisation['rank_test_roc_auc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
         # mean_roc_auc.append(mean_test_roc_auc); std_roc_auc.append(std_test_roc_auc)
-        mean_test_roc_auc,std_test_roc_auc = LogisticRegression_optimisation[LogisticRegression_optimisation['rank_test_mcc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
+        mean_test_roc_auc,std_test_roc_auc = LogisticRegression_optimisation[LogisticRegression_optimisation['rank_test_roc_auc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
         mean_roc_auc.append(mean_test_roc_auc); std_roc_auc.append(std_test_roc_auc)
-        mean_test_roc_auc,std_test_roc_auc = knn_optimisation[knn_optimisation['rank_test_mcc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
+        mean_test_roc_auc,std_test_roc_auc = knn_optimisation[knn_optimisation['rank_test_roc_auc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
         mean_roc_auc.append(mean_test_roc_auc); std_roc_auc.append(std_test_roc_auc)
-        mean_test_roc_auc,std_test_roc_auc = adaboost_optimisation[adaboost_optimisation['rank_test_mcc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
+        mean_test_roc_auc,std_test_roc_auc = adaboost_optimisation[adaboost_optimisation['rank_test_roc_auc']==1][["mean_test_roc_auc","std_test_roc_auc"]].iloc[0]
         mean_roc_auc.append(mean_test_roc_auc); std_roc_auc.append(std_test_roc_auc)
         mean_test_roc_auc,std_test_roc_auc = catboost_optimisation[["mean_test_roc_auc","std_test_roc_auc"]].iloc[catboost_optimisation.shape[0]-1]
         mean_roc_auc.append(mean_test_roc_auc); std_roc_auc.append(std_test_roc_auc)

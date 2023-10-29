@@ -10,10 +10,7 @@ import pandas as pd
 
 class Preprocessing():
     '''
-    Class for preprocessing:
-        scaling
-        calculating target
-        spliting
+    TODO: Description
     '''
 
     def __init__(self,):
